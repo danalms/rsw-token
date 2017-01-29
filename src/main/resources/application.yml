@@ -1,0 +1,18 @@
+server:
+  port: 8085
+
+token:
+  authTokenUri: http://localhost:9000/oauth/token
+  authClientId: rsw
+  authClientSecret: rswsecret
+
+spring:
+  application:
+    name: rsw-token
+
+security:
+  basic:
+    enabled: false
+  sessions: stateless
+  ignored: "*"
+
