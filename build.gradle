@@ -26,6 +26,29 @@ jar {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+docker {
+//    useApi true
+//    hostUrl 'http://'
+//    apiUsername 'user'
+//    apiPassword 'password'
+//    apiEmail 'mail@abc.com'
+}
+
+task buildDocker(type: Docker, dependsOn: build) {
+	push = true
+	// miniserver.local : Nexus hosted docker registry
+	tag = "10.0.1.9:8082/rsw-token"
+	tagVersion = "v1"
+	dockerfile = file('src/main/docker/Dockerfile')
+	applicationName = jar.baseName
+	doFirst {
+		copy {
+			from jar
+			into stageDir
+		}
+	}
+}
+
 repositories {
 //	mavenCentral()
 	maven {
