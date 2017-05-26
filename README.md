@@ -1,4 +1,4 @@
-# Token Utility
+# rsw-token
 
 * This is a convenience/utility micro service that provides a Swagger UI to obtain an OAuth2 token 
 from the auth server using Swagger. The token may be either a plain OAuth2 or JWT token 
